@@ -11,10 +11,13 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         preferiti: {
           ...state.preferiti,
-          aziendepreferite: [
-            ...state.preferiti.aziendepreferite,
-            action.payload,
-          ],
+          //   aziendepreferite: [
+          //     ...state.preferiti.aziendepreferite,
+          //     action.payload,
+          //   ],
+          aziendepreferite: state.preferiti.aziendepreferite.concat(
+            action.payload
+          ),
         },
       };
     // case "REMOVE_PREFERITO":
