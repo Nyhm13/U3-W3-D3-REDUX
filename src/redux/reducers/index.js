@@ -20,8 +20,22 @@ const mainReducer = (state = initialState, action) => {
           ),
         },
       };
-    // case "REMOVE_PREFERITO":
-    //   return {};
+    case "REMOVE_PREFERITO":
+      return {
+        ...state,
+        preferiti: {
+          ...state.preferiti,
+          aziendepreferite: state.preferiti.aziendepreferite.filter(
+            (azienda, index) => {
+              if (index !== action.payload) {
+                return true;
+              } else {
+                return false;
+              }
+            }
+          ),
+        },
+      };
     default:
       return state;
   }
